@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <title>播放声音</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="../src/zepto.fullpage.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/style3.css" />
+    <style>
+    * {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			list-style: none;
+		}
+		
+		html {
+			font-size: 100px;
+		}
+		
+		body {
+			font-size: 16px;
+		}
+		
+		@media only screen and (min-width: 320px) {
+			html {
+				font-size: 42.66667px;
+			}
+		}
+		
+		@media only screen and (min-width: 360px) {
+			html {
+				font-size: 48px;
+			}
+		}
+		
+		@media only screen and (min-width: 375px) {
+			html {
+				font-size: 50px;
+			}
+		}
+		
+		@media only screen and (min-width: 384px) {
+			html {
+				font-size: 51.2px;
+			}
+		}
+		
+		@media only screen and (min-width: 412px) {
+			html {
+				font-size: 54.93333px;
+			}
+		}
+		
+		@media only screen and (min-width: 414px) {
+			html {
+				font-size: 55.2px;
+			}
+		}
+		
+		@media only screen and (min-width: 768px) {
+			html {
+				font-size: 102.4px;
+			}
+		}
+		
+		@media only screen and (min-width: 800px) {
+			html {
+				font-size: 106.66667px;
+			}
+		}
+		
+		@media only screen and (min-width: 1024px) {
+			html {
+				font-size: 136.53333px;
+			}
+		}
+        .music{
+            position: absolute;
+            z-index: 1000;
+            right: 0px;
+            top: 0px;
+          	margin: 10px;
+            width: 25px;
+            height: 25px;
+        }
+        .music .music-btn {
+            display: block;
+           
+            width: 25px;
+            height: 25px;
+            background-image: url(css/img/music-1.png);
+            background-size: 100% 100%;
+        }
+        .music .music-btn.play {
+            background-image: url(css/img/music-0.png);
+        }
+        .page{
+        	overflow: hidden;
+        }
+        .one{
+        	position: absolute;
+        	left: 0;
+        	top: 0;
+        	width: 100%;
+        	height: 100%;
+        }
+        h1{
+        	font-size: 48px;
+        }
+        .page{
+        	padding: 0.4rem;
+        	position: relative;
+        }
+        .page1{
+        	padding: 0;
+        }
+        .page2{
+        	background: #fff;
+        }
+        .page2 li{
+        	list-style: none;
+        	float: left;
+        	background: blanchedalmond;
+        	width: 120px;
+        	height: 200px;
+        	/*transform: rotate(45deg);*/
+        	overflow: hidden;
+        	
+        }
+        .page2 li img{
+        	height: 100%;
+        }
+         .page2 li:nth-child(1){
+        	width: 240px;
+        	margin: 0 auto;
+        }
+        .page2 li:nth-child(1) img{
+        	
+        }
+        .page2 li:nth-child(){
+        
+        	margin-left: 40px;
+        }
+        .page2 li:nth-child(2){
+        	margin-top: 200px;
+        	/*margin-left: 30px;*/
+        	transform: rotate(-45deg);
+        }
+        .page2 li:nth-child(3){
+        	margin-top: 200px;
+        	margin-left: 40px;
+        	transform: rotate(-45deg);
+        }
+        .float{
+        	float: left;
+        }
+        .page3{
+        	background: #fff;
+        }
+        .page3 .three{
+        	width: 6.7rem;
+        	height: auto;
+        	overflow: hidden;
+        	margin-top: 0.4rem;
+        }
+        .three .left{
+        	width: 3rem;
+        	height: 4rem;
+        	overflow: hidden;
+        }
+        .three .right{
+        	width: 3rem;
+        	height: 4rem;
+        	margin-left: 0.6rem;
+        	border-bottom: 0.01rem solid #999;
+        	overflow: hidden;
+        }
+        .h{
+        	font-size: 0.28rem;
+        	color: #333;
+        }
+        .th-bot{
+        	height: 2.4rem;
+        	width: 100%;
+        	margin-top: 0.38rem;
+        	overflow: hidden;
+        }
+        h6{
+        	text-align: center;
+        	margin: 0.3rem 0;
+        	font-size: 0.4rem;
+        	font-weight: 500;
+        }
+        /*4*/
+       .page4{
+       	background: #fff;
+       }
+       .page5{
+       	background: #fff;
+       }
+       .four{
+       	width: 3.6rem;
+       	height: 7.2rem;
+       	/*background: violet;*/
+       	margin: 0.4rem;
+       	overflow: hidden;
+       	margin-left: 3rem;
+       	position: relative;
+       }
+       .page4 .bigimg{
+       	position: absolute;
+       	left: 0.3rem;
+       	top: 0.8rem;
+       	width: 3.6rem;
+       }
+       .four .line{
+       	height: 7.2rem;
+       	width: 0.2rem;
+       	background: rgba(0,0,0,0.2);
+       	position: absolute;
+       	left: 0.8rem;
+       	top: 0;
+       }
+       .four .one{
+       	width: 100%;
+       	height: 50%;
+       	background: rgba(0,0,0,0.7);
+       	position: relative;
+       	color: #fff;
+       	font-size: 0.34rem;
+       	padding-top: 0.4rem;
+       	text-align: center;
+       	font-weight: 600;
+       }
+        .four .one div:nth-child(2){
+        	float: left;
+        	width: 100%;
+        	text-align: right;
+        	font-size: 0.16rem;
+        	font-weight: 500;
+        	padding-right: 0.4rem;
+        }
+        .four .two{
+       	width: 100%;
+       	height: 50%;
+       	transform:skew(45deg) translate(1.8rem);
+       	position: relative;
+       	overflow: hidden;
+       	padding: 0.2rem;
+       	background: rgba(0,0,0,0.7);
+       }
+       .page4 .f-bot{
+       	height: 4rem;
+       	width: 100%;
+       	background: #fff;
+       	/*overflow: hidden;*/
+       	position: relative;
+       	 -webkit-box-shadow:0 0 12px rgba(0, 0, 0, .3);  
+		  -moz-box-shadow:0 0 12px rgba(0, 0, 0, .3);  
+		  box-shadow:0 0 12px rgba(0, 0, 0, .3);  
+       }
+       .page4 .f-bot:before{
+       	display: block;
+       	content: "";
+       	width: 100%;
+       	height: 0.2rem;
+       	position: absolute;
+       	left: -2rem;
+       	bottom: 0rem;
+       	background: rgba(0,0,0,0.2);
+       	transform: rotate(45deg);
+       }
+        .page4 .f-bot:after{
+       	display: block;
+       	content: "";
+       	width: 100%;
+       	height: 0.14rem;
+       	position: absolute;
+       	left: -2.8rem;
+       	bottom: 0rem;
+       	background: rgba(0,0,0,0.2);
+       	transform: rotate(45deg);
+       }
+       .page5 .five{
+       	width:4rem;
+       	height: 8rem;
+       	border: 1px solid #eee;
+       }
+       .page5 .five-bot{
+       	position: absolute;
+       	right: 0.4rem;
+       	bottom: 0.4rem;
+       	width:4rem;
+       	height: 8rem;
+       	border: 1px solid #eee;
+       }
+       img{
+       	width: 100%;
+       }
+       .page7 .img{
+       		position: absolute;
+       		transform: rotate(45deg);
+   			background: yellowgreen;
+   			overflow: hidden;
+       }
+       .page7 .img img{
+       	/*transform: rotate(-45deg);*/
+       	width: 100%;
+       }
+    </style>
+</head>
+<body>
+    <div id="music" class="music">
+        <a class="music-btn"></a>
+    </div>
+    <div class="wp">
+        <div class="wp-inner">
+        	<!--1-->
+          <div class="page page1">
+            	
+            	<video height="667px" class="videobg" src="media/video.mp4" poster="media/video.jpg"  loop muted hidden="hidden">
+					<source src="media/video.webm" type="video/web">
+					<source src="media/video.mp4" type="video/mp4">
+				</video>
+				<canvas id="container" width="375px" height="667px" style="position:absolute"></canvas>
+				<div class="container">
+					<header class="htmleaf-header">
+						
+						<h1 class="htmleaf-demos">梦景华灯几回昔</h1>
+						<nav class="htmleaf-demos">
+							<a href="index.html">Weather</a>
+							<a href="index2.html">Water</a>
+							<a class="current-demo" href="index3.html">Video</a>
+						</nav>
+				</header>
+				<p class="nosupport">对不起，你的浏览器不支持WebGL!</p>
+				</div>
+				<script src="js/index3.min.js"></script>
+            </div>
+            <!--2-->
+         	
+            <!--3-->
+            <div class="page page3">
+            	
+            	<div class="three">
+            		<div class="float left">
+            			<img src="img/default(2).png" alt="" />
+            		</div>
+            		<div class="float right">
+            			<div style="color: #000000;font-size: 0.3rem;margin-bottom: 0.07rem;" class="h">醇提那里</div>
+            			<div class="h">哦，第一次见你的时候忘了你长得什么样子了，后来好像突然就变得很熟悉了，每次就能听见你咯咯咯的笑声！e,非常荣幸结识了一位额,这样的女子，明媚的女子！</div>
+            		</div>
+            	</div>
+            	<div class="three">
+            		<div style="margin-right: 0.6rem;border-bottom: 0.01rem solid #999;" class="float left">
+            			<div style="color: #000000;font-size: 0.3rem;margin-bottom: 0.07rem;" class="h">醇提那里</div>
+            			<div class="h">奋斗，辉煌，或者默默无闻的快乐。也许会有一天消失不见。我们始终怀揣着美好，纪念曾经拥有过的温暖，易逝流年，微笑向暖。然后快乐一路相伴...</div>
+            		</div>
+            		<div style="margin: 0;" class="float right">
+            			<img src="img/default(2).png" alt="" />
+            		</div>
+            		
+            	</div>
+            	<h6>---- SUN STYLE ---- </h6>
+            	<div class="th-bot"
+            		style=" -webkit-box-shadow:0 0 12px rgba(0, 0, 0, .3);  
+		  -moz-box-shadow:0 0 12px rgba(0, 0, 0, .3);  
+		  box-shadow:0 0 12px rgba(0, 0, 0, .3);  ">
+            		<img src="img/timg (2).jpg"/>
+            	</div>
+            </div>
+            <div class="page page4">
+            	<img class="bigimg" src="img/未标题-4.png" alt="" />
+            	<div class="four">
+            		<div class="line"></div>
+            		<div class="one">Brilliant Sunshine
+            			<div style="width: 60%;height: 0.02rem;background: #fff;float: right;margin: 0.1rem 0;"></div>
+            			<div>清溪绕青山</div>
+            			<div style="float: left;padding-left: 0.4rem;font-size: 0.16rem;font-weight: 400;margin-top: 0.4rem;">六月的城市，阳光温暖的洒在每个角落。光芒温暖了眼睛……有一些记忆</div>
+            		</div>
+            		<div class="two">
+            			
+            		</div>
+            	</div>
+            	<div class="f-bot">
+            		<div style="width: 50%;height: 100%;overflow: hidden;float: left;padding: 0.3rem;">
+        				<p style="color: #333;font-size:0.36rem;">六月的城市</p>
+        				<p style="font-size: 0.16rem;color: #666;margin-top: 0.4rem;">六月的城市六月的城市六月的城市六月的城市六月的城市</p>
+        			</div>
+        			<div style="width: 50%;height:3.6rem;overflow: hidden;padding:0.3rem;float: left;overflow: hidden;">
+        				<img style="width: 100%;position: relative;position: none;" src="img/default.png" alt="" />
+        			</div>
+            	</div>
+            </div>
+            <div class="page page5">
+            	<div class="five">
+            	<h6>微笑     向暖</h1>
+            		<span>心中总是残留着一丝温暖，记住那些驻足，奋斗，辉煌，或者默默无闻的快乐。我知道，总有一天会消失不见。我始终怀揣着美好，纪念曾经拥有过的温暖，易逝流年，微笑向暖</span>
+            	</div>
+            	<div class="five-bot">轻甩手，慢慢走，瞧天看地休闲去。 与风，与雨，与空气，融为一体嬉笑中。</div>
+            </div> 
+            <div style="padding: 0;" class="page page6">
+            	<img style="height: 100%;" src="img/未标题-2.png"/>
+            </div>
+            <div class="page page7" style="padding: 0;">
+            	<img style="width: 100%;" src="img/未标题-1.png"/>
+            	<div style="width: 1.6rem;height: 1.6rem;left: 1rem;bottom: 5.7rem;" class="img"><img src="img/default.png" alt="" /></div>
+            	<div style="width: 1rem;height: 1rem;right: -0.6rem;bottom: 11.2rem;background: #bccbd0;" class="img"></div>
+            	<div style="width: 2rem;height: 1.7rem;left: 3.9rem;bottom: 5.7rem;" class="img"><img src="img/city.jpg" alt="" /></div>
+            	<div style="width: 1.6rem;height: 1.6rem;left: 5.5rem;bottom: 4.3rem;" class="img"><img src="img/default.png" alt="" /></div>
+            	<div style="width: 1.3rem;height: 1.3rem;left: -0.3rem;bottom: 3.9rem;" class="img"><img src="img/default.png" alt="" /></div>
+            	<div style="width: 1.6rem;height: 1.6rem;left: 0.7rem;bottom: 2.2rem;" class="img"><img src="img/timg (2).jpg" alt="" /></div>
+            	<div style="width: 1.6rem;height: 1.6rem;left: 2.2rem;bottom: 0.7rem;" class="img"><img src="img/timg (3).jpg" alt="" /></div>
+            	<div style="width: 2rem;height: 2rem;left: 4.2rem;bottom: 1.1rem;" class="img"><img src="img/default.png" alt="" /></div>
+            	<div style="width: 2rem;height: 2rem;left: -1.4rem;bottom: 8rem;background: #e9edee;" class="img"></div>
+            </div>
+        </div>
+    </div>
+    <span class="start"><b></b></span>
+    <script src="js/zepto.js"></script>
+    <script src="../src/zepto.fullpage.js"></script>
+    <script>
+        $('.wp-inner').fullpage();
+       
+    </script>
+    <script>
+        var bgAudio = new Audio();
+        bgAudio.loadStatus = 'unload';
+        bgAudio.loop = true;
+        function loadAudio(audio, url, callback) {
+            audio.src = url;
+            audio.load();
+            audio.addEventListener('canplay', function () {
+                bgAudio.loadStatus = 'loaded';
+                callback();
+            });
+            audio.addEventListener('loadstart', function () {
+                bgAudio.loadStatus = 'loading';
+            });
+        }
+        function playAudio(){
+            if (bgAudio.loadStatus === 'unload') {
+                loadAudio(bgAudio, 'media/bg.mp', function () {
+                    playAudio();
+                });
+                return 1;
+            }
+
+            bgAudio.play();
+        }
+        function stopAudio() {
+            bgAudio.pause();
+        }
+        bgAudio.addEventListener('playing' ,function (e) {
+            $('#music .music-btn').addClass('play');
+        });
+        bgAudio.addEventListener('pause' ,function (e) {
+            $('#music .music-btn').removeClass('play');
+        });
+
+        $('body').one('touchstart', function () {
+            playAudio();
+            $('#music').on('touchstart', function (e) {
+                if (bgAudio.paused) {
+                    playAudio();
+                    return 0;
+                }
+                stopAudio();
+                return 1;
+            });
+        });
+        window.onload = function() {
+            if (bgAudio.loadStatus !== 'unload') {return;}
+            playAudio();
+        };
+    </script>
+</body>
+</html>
